@@ -26,8 +26,15 @@ namespace Practica_MVC_4.Controllers
             string comentarios = Request.Form["comentarios"].ToString();
             LibroVisitas libro = new LibroVisitas();
             libro.Grabar(nombre, comentarios);
+            return View();            
+        }
+
+        public ActionResult ListadoVisitas() 
+        {
+            LibroVisitas libro = new LibroVisitas();
+            string todo = libro.Leer();
+            ViewData["Libro"] = todo;
             return View();
-            
         }
     }
 }
